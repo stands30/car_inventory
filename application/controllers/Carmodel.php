@@ -64,7 +64,14 @@ class CarModel extends CI_Controller {
 		 else
 		 {
 		 	 $count = $mdlCount-1;
-		 	$mdl = $this->Carmodel_model->updateSoldData($count,$mdlid,ACTIVE_STATUS);
+		 	 if($count <= 1)
+		 	 {
+		 	   $mdl = $this->Carmodel_model->updateSoldData($mdlCount,$mdlid,INACTIVE_STATUS);
+		 	 }
+		 	 else
+		 	 {
+		 	   $mdl = $this->Carmodel_model->updateSoldData($count,$mdlid,ACTIVE_STATUS);
+		 	 }
 		 }
 		 if($mdl)
 		 {
